@@ -95,10 +95,6 @@ Logs
 The script provides detailed logs for debugging. You can view real-time logs with:
 
     journalctl -u octofan_control.service -f
-
-or:
-
-    tail -f /var/log/octofan_controller.log
         
 
 ## Usage

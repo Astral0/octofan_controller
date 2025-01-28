@@ -1,0 +1,17 @@
+[Unit]
+Description=Fan Control Server with PID
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/env python3 /opt/octofan_controller/octofan_control_server_pid.py
+WorkingDirectory=/opt/octofan_controller/
+Restart=always
+RestartSec=5
+WatchdogSec=20s
+User=root
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=append:/var/log/octofan_controller.log
+StandardError=append:/var/log/octofan_controller.log
+
+[Install]
+WantedBy=multi-user.target
