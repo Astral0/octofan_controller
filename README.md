@@ -36,8 +36,8 @@ Installation
 
 ### 1\. Clone the repository
 
-    git clone https://github.com/Astral0/octofan_manager.git
-    cd octofan
+    git clone git@github.com:Astral0/octofan_controller.git
+    cd octofan_controller
         
 
 ### 2\. Copy the project files to `/opt`
@@ -96,22 +96,26 @@ The script provides detailed logs for debugging. You can view real-time logs wit
 
     journalctl -u octofan_control.service -f
         
+or
+
+    tail -f /var/log/octofan_controller.log
+
 
 ## Usage
 
 You can run the `octofan_control_server_pid.py` script manually or integrate it into a `systemd` service. For example, to start it manually:
 
 ```bash
-python3 /opt/octofan_controller/octofan_control_server_pid.py --target-temp 25 --max-speed 200
+python3 /opt/octofan_controller/octofan_control_server_pid.py --target_temp 25 --max_speed 200
 ```
 
 ### Command Line Parameters
 
 | Argument               | Default Value   | Description                                                                 |
 |------------------------|-----------------|-----------------------------------------------------------------------------|
-| \--target-temp         | 40              | Target temperature in °C.                                                  |
-| \--min-speed           | 40              | Minimum fan speed (from 0 to 255).                                          |
-| \--max-speed           | 255             | Maximum fan speed (from 0 to 255).                                          |
+| \--target_temp         | 40              | Target temperature in °C.                                                  |
+| \--min_speed           | 40              | Minimum fan speed (from 0 to 255).                                          |
+| \--max_speed           | 255             | Maximum fan speed (from 0 to 255).                                          |
 | \--interval            | 10.0            | Interval, in seconds, between updates.                                      |
 | \--kp                  | 2.0             | Proportional gain of the PID controller.                                    |
 | \--ki                  | 0.5             | Integral gain of the PID controller.                                        |
