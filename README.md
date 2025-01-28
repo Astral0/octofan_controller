@@ -121,7 +121,6 @@ python3 /opt/octofan_controller/octofan_control_server_pid.py --target_temp 25 -
 | \--ki                  | 0.5             | Integral gain of the PID controller.                                        |
 | \--kd                  | 1.0             | Derivative gain of the PID controller.                                      |
 | \--margin              | 2.0             | Temperature margin below the target to increase speed (°C).                 |
-| \--fan-controller-path | fan_controller_cli | Path to the `fan_controller_cli` executable.                              |
 | \--log-delay           | 600             | Delay, in seconds, between summary logs.                                    |
 | \--verbose             | False           | Enables detailed log output.                                               |
 
