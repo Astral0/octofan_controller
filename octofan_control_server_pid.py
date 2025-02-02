@@ -195,7 +195,7 @@ def read_fan_ids(dev):
     return fan_ids
 
 
-def read_temperatures(dev):
+def read_temperatures(dev, min_temp=0, max_temp=100):
     """
     Reads temperatures directly via the USB command.
     Ignores the first irrelevant value and returns the last three.
@@ -221,7 +221,7 @@ def read_temperatures(dev):
             temp_raw = (tbuf[0] | (tbuf[1] << 8))
             
             # Convert to temperature if relevant
-            if i > 0:  # Ignore the first value (irrelevant)
+            if min_temp <= temp_raw <= max_temp:
                 sensors[f"Temperature Sensor {i}"] = temp_raw
                 logger.debug(f"Temperature Sensor {i}: {sensors[f"Temperature Sensor {i}"]}")
         
